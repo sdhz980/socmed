@@ -1,0 +1,62 @@
+{
+  "post": [
+    {
+      "id": "b3d8",
+      "username": "Elon_realOg",
+      "name": "Elon Og",
+      "date": "3/19/2024, 4:30:17 AM",
+      "profileImage": "https://w7.pngwing.com/pngs/99/998/png-transparent-computer-icons-user-profile-50-face-heroes-monochrome-thumbnail.png",
+      "like": 1,
+      "content": {
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/b/bd/Kapan-Puasa-Ramadhan-2015.jpg",
+        "text": "test"
+      }
+    },
+    {
+      "id": "sd58",
+      "username": "Elon_realOg",
+      "name": "Elon Og",
+      "date": "3/19/2024, 4:30:17 AM",
+      "profileImage": "https://w7.pngwing.com/pngs/99/998/png-transparent-computer-icons-user-profile-50-face-heroes-monochrome-thumbnail.png",
+      "like": 1,
+      "content": {
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/b/bd/Kapan-Puasa-Ramadhan-2015.jpg",
+        "text": "test"
+      }
+    },
+    {
+      "id": "8f8b",
+      "name": "Shadam Husain",
+      "username": "sdhzed",
+      "date": "3/21/2024, 3:08:38 AM",
+      "content": {
+        "imageUrl": "",
+        "text": "test kawankuh"
+      }
+    },
+    {
+      "id": "3100",
+      "name": "adohl hizler",
+      "username": "hitler69",
+      "date": "3/21/2024, 3:12:06 AM",
+      "content": {
+        "imageUrl": "",
+        "text": "today im planning to bake some places"
+      }
+    }
+  ],
+  "user": [
+    {
+      "id": "b7d3",
+      "name": "Shadam Husain",
+      "username": "sdhzed",
+      "token": "8001d4e1237bf244b8720854084aeca0"
+    },
+    {
+      "id": "4ad1",
+      "name": "adohl hizler",
+      "username": "hitler69",
+      "token": "fe15ec1fe270431fa7d69278a3e28e1e"
+    }
+  ]
+}
