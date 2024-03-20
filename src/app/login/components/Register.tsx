@@ -10,10 +10,10 @@ const Register = () => {
     const dispatch = useDispatch();
 
     const validation = Yup.object().shape({
-        username: Yup.string().required().min(6),
-        name: Yup.string().required().min(6),
-        password: Yup.string().required().min(6),
-        confirmpassword: Yup.string().required().min(6)
+        username: Yup.string().required("please input your username").min(6,"minimum username is 6 character"),
+        name: Yup.string().required().min(6,"minimum name is 6 character"),
+        password: Yup.string().required().min(6,"minimum password is 6 character"),
+        confirmpassword: Yup.string().required("please re type your password").oneOf([ Yup.ref('password')] , 'password must match')
       })
     
       const formik = useFormik({
@@ -61,21 +61,25 @@ const Register = () => {
                         <div>
                             <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Your username</label>
                             <input type="text" name="username" id="username" onChange={formik.handleChange} value={formik.values.username} className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="your username" />
+                            <p className="text-sm font-light text-gray-500 dark:text-red-400">{formik.errors.username}</p>
                         </div>
                         
                         <div>
                             <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Your name</label>
                             <input type="text" name="name" id="name" onChange={formik.handleChange} value={formik.values.name} className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="your name" />
+                            <p className="text-sm font-light text-gray-500 dark:text-red-400">{formik.errors.name}</p>
                         </div>
                         
                         <div>
                             <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Password</label>
                             <input type="password" name="password" id="password" onChange={formik.handleChange} value={formik.values.password} placeholder="••••••••" className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" />
+                            <p className="text-sm font-light text-gray-500 dark:text-red-400">{formik.errors.password}</p>
                         </div>
                         
                         <div>
                             <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Confirm password</label>
                             <input type="password" name="confirmpassword" id="confirmpassword" onChange={formik.handleChange} value={formik.values.confirmpassword} placeholder="••••••••" className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" />
+                            <p className="text-sm font-light text-gray-500 dark:text-red-400">{formik.errors.confirmpassword}</p>
                         </div>
                         
                         <div className="flex items-start">
