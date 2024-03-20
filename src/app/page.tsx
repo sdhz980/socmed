@@ -2,11 +2,11 @@
 import FeedPost from "./components/FeedPost";
 import PostForm from "./components/PostForm";
 import { useEffect, useState } from "react";
-import getPublicPost from "./util/getPublicPost";
+import getPublicPost from "@/util/getPublicPost";
 import Navbar from "./components/Navbar";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "@/lib/store";
-import { addFeedPost, addUser, setLoading } from "@/lib/features/user/user-slice";
+import { addFeedPost , setLoading } from "@/lib/features/user/user-slice";
 import { useRouter } from "next/navigation";
 import Loading from "./components/Loading";
 

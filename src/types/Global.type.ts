@@ -20,6 +20,28 @@ export interface FeedPostProps {
     }
 };
 
+export interface UserState {
+    feedPost: FeedPostProps[];
+    user: UserProps;
+    isFetchingFeed: boolean;
+    isUserLoggedIn: boolean;
+    loginSwitch: boolean;
+    loading: boolean;
+}
+
+export interface FeedPostPropsCard {
+    props : {
+        name: string;
+        username: string;
+        profileImage:string;
+        date: string;
+        content : {
+            text:string;
+            imageUrl:string;
+        }
+    }
+}
+
 export interface UserProps {
     id:              number;
     name:            string;

@@ -1,16 +1,7 @@
-import { FeedPostProps , UserProps } from "@/app/types/Global.type";
+import { UserState } from "@/types/Global.type";
 import { createSlice } from "@reduxjs/toolkit";
 
-interface TodoState {
-  feedPost: FeedPostProps[];
-  user: UserProps;
-  isFetchingFeed: boolean;
-  isUserLoggedIn: boolean;
-  loginSwitch: boolean;
-  loading: boolean;
-};
-
-const initialState : TodoState = {
+const initialState : UserState = {
   feedPost: [],
   user: {
     id:0,

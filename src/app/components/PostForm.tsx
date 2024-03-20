@@ -1,13 +1,12 @@
 'use client'
 import { useFormik } from 'formik'
 import React from 'react'
-import { postPublicPost } from '../util/postPublicPost'
-import { useRouter } from 'next/navigation'
+import { postPublicPost } from '@/util/postPublicPost'
 import * as Yup from 'yup';
 import { useDispatch, useSelector } from 'react-redux'
 import { RootState } from '@/lib/store'
 import { addFeedPost, setLoading } from '@/lib/features/user/user-slice'
-import getPublicPost from '../util/getPublicPost'
+import getPublicPost from '@/util/getPublicPost'
 
 const PostForm = () => {
   const  { user } = useSelector((state : RootState) => state.userReducer)
