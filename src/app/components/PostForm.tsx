@@ -4,11 +4,14 @@ import React from 'react'
 import { postPublicPost } from '../util/postPublicPost'
 import { useRouter } from 'next/navigation'
 import * as Yup from 'yup';
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { RootState } from '@/lib/store'
+import { addFeedPost, setLoading } from '@/lib/features/user/user-slice'
+import getPublicPost from '../util/getPublicPost'
 
-const PostForm = ({props} : any) => {
-  let user = useSelector((state : RootState) => state.userReducer.user)
+const PostForm = () => {
+  const  { user } = useSelector((state : RootState) => state.userReducer)
+  const dispatch = useDispatch();
 
   const validation = Yup.object().shape({
     postForm: Yup.string().max(300)
@@ -19,20 +22,10 @@ const PostForm = ({props} : any) => {
       postForm: ''
     },
     validationSchema : validation,
-    onSubmit: value => {
-      handlePostFunction().then(()=>{
-        formik.setFieldValue("postForm","");
-        props(true);
-      })
-    }
+    onSubmit: value => {}
   })
 
-  const handleChange = () => {
-    formik.handleChange
-  }
-
   const handlePostFunction = async () => {
-    
     try {
       await postPublicPost({
         name: user.name,
@@ -48,8 +41,14 @@ const PostForm = ({props} : any) => {
   }
   
   const handleSubmitForm = () => {
-    props(false)
-    handlePostFunction();
+    dispatch(setLoading(true))
+    formik.setFieldValue("postForm","");
+    handlePostFunction().then(() => {
+      getPublicPost().then((val:any) => {
+        dispatch(addFeedPost(val));
+        dispatch(setLoading(false));
+      })
+    });
   }
 
   return (
