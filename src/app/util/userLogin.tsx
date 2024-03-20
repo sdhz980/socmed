@@ -9,16 +9,12 @@ interface loginDetailProp {
 
 const userLogin = async (props : loginDetailProp) => {
     const token = md5(props.password);
-    let user : {
-        username: string;
-        token: string;
-    }[];
     try {
         const response = await axios.get(`${BASE_URL}/user`);
-        user = response.data.filter((item:{ username:string}) => item.username == props.username);
-        // return `token : ${token} user token : ${user[0].token}`;
-        if (!user.length) return 'invalid login';
-        if (user && user[0].token === token) return user[0];
+        const user = response.data.find((item: any) => item.username == props.username);
+        console.log(user);
+        if (!user) return 'invalid login';
+        if (user.token === token) return user;
         return 'invalid password';
     } catch (error) {}
 }

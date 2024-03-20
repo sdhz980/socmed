@@ -7,8 +7,7 @@ import Navbar from "./components/Navbar";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "@/lib/store";
 import { addFeedPost, addUser, setLoading } from "@/lib/features/user/user-slice";
-import { userValidation } from "./util/userValidation";
-import { notFound, useRouter } from "next/navigation";
+import { useRouter } from "next/navigation";
 import Loading from "./components/Loading";
 
 export default function Home() {
@@ -24,14 +23,11 @@ export default function Home() {
     dispatch(setLoading(false));
   }
 
-  const validateUser = async () => {
+  const validateUser = () => {
     console.log(user);
     if (!user?.token) {
       router.push('/login')
     }
-    await userValidation(user).then((res) => {
-      if (res) return dispatch(addUser(res[0]));
-    })
   }
   
   useEffect(()=>{

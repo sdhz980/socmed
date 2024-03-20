@@ -34,6 +34,7 @@ const Register = () => {
             }).then(()=> {
                 dispatch(setLoading(false));
                 alert('success register please login to your account');
+                dispatch(setLoginSwitch(true));
             })
               .catch(()=> alert("error"));
         }
